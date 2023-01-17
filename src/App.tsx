@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {createElement as e} from "react";
 
 function App() {
-  // return (
-  //     <h1>Hello, FARALOST</h1>
-  // )
-  return e('div', {className: 'container'}, [
-      e('h2', {className: 'title'}, 'Test'),
-      e('button', {className: ''}, 'Click me!'),
-  ])
+    const [count, setCount] = useState(0)
+    return e('div', {className: 'container'}, [
+        e('h2', {className: 'title', key: 1}, `${count} Test`),
+        e('button', {
+            className: 'py-2 px-4 border',
+            key: 2,
+            onClick: () => setCount(count + 1)
+        }, 'Click me!'),
+    ])
 }
 
 export default App;
